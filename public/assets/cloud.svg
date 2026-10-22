@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="cloud — illustrative demo asset"><defs>
+ <radialGradient id="bg"><stop stop-color="#fff"/><stop offset="1" stop-color="#EEEAF8"/></radialGradient>
+ <linearGradient id="clay" x1=".15" y1="0" x2=".8" y2="1"><stop stop-color="#EEEBFF"/><stop offset=".5" stop-color="#BEB1EA"/><stop offset="1" stop-color="#8E7EC2"/></linearGradient>
+ <linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#BEB1EA"/><stop offset="1" stop-color="#8E7EC2"/></linearGradient>
+ <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="shadow" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+ <filter id="depth" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="10" dy="24" stdDeviation="14" flood-color="#8E7EC2" flood-opacity=".24"/></filter>
+ </defs><rect width="800" height="800" fill="url(#bg)"/><ellipse cx="410" cy="650" rx="180" ry="25" fill="#8E7EC2" opacity=".18" filter="url(#shadow)"/><g filter="url(#depth)" transform="rotate(-6 400 400)"><path d="M246 509C133 504 128 351 240 330C243 211 393 181 453 278C545 234 633 315 609 393C708 465 635 548 555 538Z" fill="url(#clay)"/><path d="M214 371C232 340 253 348 277 322C279 260 349 235 393 265" fill="none" stroke="url(#shine)" stroke-width="19" stroke-linecap="round"/><path d="M438 308C479 282 528 308 536 336" fill="none" stroke="url(#shine)" stroke-width="10" stroke-linecap="round"/></g></svg>
