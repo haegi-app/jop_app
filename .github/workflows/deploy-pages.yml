@@ -1,0 +1,48 @@
+name: Publish Brand Asset AI Studio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+      - run: npm run build:portable
+      # Embed assets so this exact app also works under /jop_app/.
+      # Upload only the application, never verification reports or user data.
+      - name: Prepare website
+        run: |
+          mkdir -p "$RUNNER_TEMP/studio-site"
+          cp portable/Brand-Asset-AI-Studio.html "$RUNNER_TEMP/studio-site/index.html"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/studio-site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish website
+        id: deployment
+        uses: actions/deploy-pages@v4
